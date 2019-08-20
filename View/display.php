@@ -1,15 +1,3 @@
-<?php
-include_once '../Model/DBconnect.php';
-include_once '../Model/CustomerDB.php';
-include_once '../Model/Customer.php';
-include_once '../Controller/CustomerController.php';
-
-$customer = new CustomerController();
-$data = $customer->index();
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +8,7 @@ $data = $customer->index();
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <style type="text/css">
-        .example{
+        .example {
             margin: 20px;
         }
     </style>
@@ -40,21 +28,29 @@ $data = $customer->index();
                 </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($data as $key) {?>
-                <tr>
-                    <td><?php echo $key->getId() ?></td>
-                    <td><?php echo $key->getName() ?></td>
-                    <td><?php echo $key->getEmail() ?></td>
-                    <td><?php echo $key->getAddress() ?></td>
-                    <td><a href="update.php?id=<?php echo $key->getId()?>"><button>Update User</button></a></td>
-                    <td><a href="delete.php?id=<?php echo $key->getId()?>"><button>Delete</button></a></td>
-                </tr>
-                <?php }?>
+                <?php foreach ($customers as $key) { ?>
+                    <tr>
+                        <td><?php echo $key->getId() ?></td>
+                        <td><?php echo $key->getName() ?></td>
+                        <td><?php echo $key->getEmail() ?></td>
+                        <td><?php echo $key->getAddress() ?></td>
+                        <td><a href="Update_User.php?id=<?php echo $key->getId() ?>">
+                                <button>Update User</button>
+                            </a>
+                        </td>
+                        <td><a href="Delete_User.php?id=<?php echo $key->getId() ?>">
+                                <button>Delete</button>
+                            </a>
+                        </td>
+                    </tr>
+                <?php } ?>
                 </tbody>
                 <tr>
-                   <td>
-                       <a href="add.php"><button type="button" class="btn btn-success">Add User</button></a>
-                   </td>
+                    <td>
+                        <a href="Add_User.php">
+                            <button type="button" class="btn btn-success">Add User</button>
+                        </a>
+                    </td>
                 </tr>
             </table>
         </div>

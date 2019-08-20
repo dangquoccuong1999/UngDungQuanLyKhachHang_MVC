@@ -1,7 +1,3 @@
-<?php
-include_once '../Controller/CustomerController.php';
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,8 +38,3 @@ include_once '../Controller/CustomerController.php';
 </div>
 </body>
 </html>
-
-<?php
-$customer = new CustomerController();
-$customer->add();
-?>
