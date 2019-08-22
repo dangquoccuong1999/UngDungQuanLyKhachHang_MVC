@@ -24,7 +24,6 @@ class CustomerController
             if (!empty($name) && !empty($email) && !empty($address)) {
                 $customer = new Customer($name, $email, $address);
                 $this->customerDB->create($customer);
-
             }
             header('location:index_DanhSach.php');
         }
